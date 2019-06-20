@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import Header from './instructorComponents/Header';
+import MainContent from './instructorComponents/MainContent';
+import Footer from './instructorComponents/Footer';
 
 export default class App extends Component {
     constructor(props) {
@@ -20,6 +23,16 @@ export default class App extends Component {
     }
 
     render() {
-        return <h2>{this.state.message}</h2>;
+        return (
+            <div>
+                {this.state.message}
+
+                //add link to the admin page
+                //add link to the instructor page
+                //add link to the student page
+                    {/*<Header/>*/}
+                    {/*<MainContent/>*/}
+                    {/*<Footer/>*/}
+            </div>);
     }
 }
