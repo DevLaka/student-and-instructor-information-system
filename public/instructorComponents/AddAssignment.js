@@ -15,36 +15,27 @@ class AddAssignment extends Component{
 
         event.preventDefault();
 
-        const name = this.refs.name.value;
-        const code = this.refs.code.value;
-        const passMark = this.refs.passMark.value;
-        const lecturer = this.refs.lecturer.value;
-        const subname = this.refs.subname.value;
-        const subdescription = this.refs.subdescription.value;
-        const subamount = this.refs.subamount.value;
+        const assignmentName = this.refs.assname.value;
+        const description = this.refs.desc.value;
+        const startDate = this.refs.startdate.value;
+        const endDate = this.refs.enddate.value;
+
 
         const data = {
-            "name" : name,
-            "code" : code,
-            "passMark" : passMark,
-            "lectureInCharge" : lecturer,
-            "subjects" : [
-                {
-                    "name" : subname,
-                    "description" : subdescription,
-                    "amount" : subamount
-                }
-            ]
+            "assignmentName" : assignmentName,
+            "description" : description,
+            "submissionFrom" : startDate,
+            "dueDate" : endDate
         };
 
-        fetch('http://localhost:3000/api/messages/courses', {
+        fetch('http://localhost:7000/api/messages/instructor/assignment', {
             method : 'POST',
             body : JSON.stringify(data),
             headers : {'Content-type' : 'application/json'}
         }).then(function (res) {
             return(res.json());
         }).then( json => {
-            alert(json.name + ' is added to the db')
+            alert(json.assignmentName + ' is added to the db')
         })
     }
 
@@ -61,7 +52,7 @@ class AddAssignment extends Component{
                             <label> Assignment name : </label>
                         </div>
                         <div className="col-sm-6">
-                            <input type="text" ref="name"/>
+                            <input type="text" ref="assname"/>
                         </div>
                     </div>
 
@@ -70,7 +61,7 @@ class AddAssignment extends Component{
                             <label> Description : </label>
                         </div>
                         <div className="col-sm-6">
-                            <textarea rows="4" cols="50" ref="code"/>
+                            <textarea rows="4" cols="50" ref="desc"/>
                         </div>
                     </div>
 
@@ -79,7 +70,7 @@ class AddAssignment extends Component{
                             <label> Allow submission from : </label>
                         </div>
                         <div className="col-sm-6">
-                            <input type="date" ref="passMark"/>
+                            <input type="date" ref="startdate"/>
                         </div>
                     </div>
 
@@ -88,7 +79,7 @@ class AddAssignment extends Component{
                             <label> Due date : </label>
                         </div>
                         <div className="col-sm-6">
-                            <input type="date" ref="lecturer"/>
+                            <input type="date" ref="enddate"/>
                         </div>
                     </div>
 

@@ -30,9 +30,9 @@ export default class App extends Component {
                 //add link to the admin page
                 //add link to the instructor page
                 //add link to the student page
-                    {/*<Header/>*/}
-                    {/*<MainContent/>*/}
-                    {/*<Footer/>*/}
+                    <Header/>
+                    <MainContent/>
+                    <Footer/>
             </div>);
     }
 }
