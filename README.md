@@ -12,13 +12,14 @@ This includes;
  
  **Install npm first**
  
-    npm intall
+    npm install
  
  **Start**
  
  Make sure mongo DB is running on localhost 27017.
  
     npm start
+	
 
 
 
