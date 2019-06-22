@@ -14,27 +14,7 @@ class Assignment extends Component{
 
     handleClickEditDueDate(){
 
-        // const assignmentname = this.props.assName;
-        //
-        // //getting the values from input fields of the form
-        // let date = this.refs.name.date;
-        //
-        // //data to be send over the request body
-        // let data = {"assignmentname": assignmentname, "dueDate": date};
-        //
-        // fetch('http://localhost:7000/api/messages/instructor/assignment/' + assignmentname, {
-        //     method: "PUT",
-        //     body: JSON.stringify(data),
-        //     headers: {'Content-type': 'application/json'}
-        // }).then(function (data){
-        //     return data.json();
-        // }).then(json => {
-        //     this.setState({
-        //         assignment : json
-        //     });
-        // }).catch(function (error) {
-        //     console.log(error);
-        // });
+
     };
 
     render(){

@@ -10,10 +10,7 @@ const ExamSchema = new Schema({
     description : {
         type: String
     },
-    submissionFrom : {
-        type : Date
-    },
-    dueDate : {
+    date : {
         type : Date
     }
 });

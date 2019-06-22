@@ -33,6 +33,14 @@ Router.post('/instructor/assignment', function (req,res) {
     });
 });
 
+//updating due date of assignment
+Router.put('/instructor/assignment/:assignmentName', function(req, res){
+    console.log(req.params.assignmentName);
+    Assignment.update({assignmentName : req.params.assignmentName}, req.body).then(function(assignment){
+        res.send(assignment);
+    })
+});
+
 //get all exam
 Router.get('/instructor/exams', function (req, res) {
     Exam.find({}).then(function (exam) {
@@ -57,5 +65,7 @@ Router.post('/instructor/exam', function (req,res) {
         console.log(error);
     });
 });
+
+
 
 module.exports = Router;

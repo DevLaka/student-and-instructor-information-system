@@ -46,46 +46,32 @@ class AddAssignment extends Component{
         return(
             <div className="AddAssignmentContainer">
                 <h3> Add a Assignment </h3>
-                <form onSubmit={this.handleSubmitAddCourseForm}>
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <label> Assignment name : </label>
+                    <form onSubmit={this.handleSubmitAddCourseForm}>
+                        <div className="form-group">
+                                <label> Assignment name : </label>
+                                <input type="text" ref="assname"/>
                         </div>
-                        <div className="col-sm-6">
-                            <input type="text" ref="assname"/>
-                        </div>
-                    </div>
 
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <label> Description : </label>
+                        <div className="form-group">
+                                    <label> Description : </label>
+                                    <textarea rows="4" cols="50" ref="desc"/>
                         </div>
-                        <div className="col-sm-6">
-                            <textarea rows="4" cols="50" ref="desc"/>
-                        </div>
-                    </div>
 
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <label> Allow submission from : </label>
+                        <div className="form-group">
+                                <label> Allow submission from : </label>
+                                <input type="date" ref="startdate"/>
                         </div>
-                        <div className="col-sm-6">
-                            <input type="date" ref="startdate"/>
-                        </div>
-                    </div>
 
-                    <div className="row">
-                        <div className="col-sm-6">
+
+                        <div className="form-group">
                             <label> Due date : </label>
-                        </div>
-                        <div className="col-sm-6">
                             <input type="date" ref="enddate"/>
                         </div>
-                    </div>
 
-                    <button> Add a Assigment</button>
-                </form>
-            </div>
+                    <button type="submit" className="btn btn-primary"> Add a Assigment</button>
+
+                    </form>
+                </div>
         )
     }
 
