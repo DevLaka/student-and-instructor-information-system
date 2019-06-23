@@ -1,6 +1,9 @@
 const express = require('express');
 const Assignment = require('../../models/Assignment');
 const Exam = require('../../models/Exam');
+const Admin = require('../../models/Admin');
+const Course = require('../../models/Course');
+const Instructor = require('../../models/Instructor');
 
 const Router = express.Router();
 
