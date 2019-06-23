@@ -4,6 +4,7 @@ const Exam = require('../../models/Exam');
 
 const Router = express.Router();
 
+//IT17250498---------
 Router.get('/', function (req, res) {
     res.json({message: 'Student and Instructor Information System'});
 });
@@ -35,10 +36,19 @@ Router.post('/instructor/assignment', function (req,res) {
 
 //updating due date of assignment
 Router.put('/instructor/assignment/:assignmentName', function(req, res){
+
+    let updateDate =  req.body.dueDate;
+
     console.log(req.params.assignmentName);
+    console.log(req.body);
+    console.log(updateDate);
+
     Assignment.update({assignmentName : req.params.assignmentName}, req.body).then(function(assignment){
-        res.send(assignment);
-    })
+            res.send(assignment);
+    }).catch(function (error) {
+        console.log(error);
+    });
+
 });
 
 //get all exam
@@ -65,6 +75,8 @@ Router.post('/instructor/exam', function (req,res) {
         console.log(error);
     });
 });
+
+
 
 //IT17069328----------------------------
 //get all admins

@@ -20,14 +20,12 @@ class MainContent extends Component{
                     <div className="col-sm-10">
                         <AddAssignment />
                     </div>
-                    <div className="col-sm-1"/>
                 </div>
                 <div className="row">
                     <div className="col-sm-1"/>
                     <div className="col-sm-10">
                         <AddExam />
                     </div>
-                    <div className="col-sm-1"/>
                 </div>
                 <div className="row">
                     <div className="col-sm-1"/>

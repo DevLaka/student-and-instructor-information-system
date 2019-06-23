@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class AddAssignment extends Component{
 
     constructor(props){
@@ -10,6 +12,7 @@ class AddAssignment extends Component{
 
         this.handleSubmitAddCourseForm = this.handleSubmitAddCourseForm.bind(this);
     }
+
 
     handleSubmitAddCourseForm(event){
 
@@ -39,41 +42,51 @@ class AddAssignment extends Component{
         })
     }
 
-    render(){
 
+    // handleChangeAssignName(event){
+    //     this.setState({
+    //         assignmentName : event.target.value
+    //     });
+    // }
+
+
+    render(){
 
 
         return(
             <div className="AddAssignmentContainer">
+
                 <h3> Add a Assignment </h3>
-                    <form onSubmit={this.handleSubmitAddCourseForm}>
-                        <div className="form-group">
-                                <label> Assignment name : </label>
-                                <input type="text" ref="assname"/>
-                        </div>
+                <form onSubmit={this.handleSubmitAddCourseForm}>
+                    <div className="form-group">
+                        <label htmlFor="assname"> Assignment name : </label>
+                        <input type="text" ref="assname" className="form-control" id="assname" />
+                    </div>
 
-                        <div className="form-group">
-                                    <label> Description : </label>
-                                    <textarea rows="4" cols="50" ref="desc"/>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="desc"> Description : </label>
+                        <textarea rows="4" cols="50" ref="desc" className="form-control" id="desc"/>
+                    </div>
 
-                        <div className="form-group">
-                                <label> Allow submission from : </label>
-                                <input type="date" ref="startdate"/>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="startdate"> Allow submission from : </label>
+                        <input type="date" ref="startdate" className="form-control" id="startdate"/>
+                    </div>
 
 
-                        <div className="form-group">
-                            <label> Due date : </label>
-                            <input type="date" ref="enddate"/>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="startdate"> Due date : </label>
+                        <input type="date" ref="enddate" className="form-control" id="startdate"/>
+                    </div>
 
-                    <button type="submit" className="btn btn-primary"> Add a Assigment</button>
+                    <button type="submit" className="btn btn-primary float-right"> Add a Assigment</button>
 
-                    </form>
-                </div>
+                </form>
+            </div>
         )
     }
+
+
 
 }
 

@@ -13,6 +13,21 @@ class ViewAllAssignments extends Component{
         this.handleClickViewAllCourses = this.handleClickViewAllCourses.bind(this);
     };
 
+    componentDidMount() {
+
+        fetch('http://localhost:7000/api/messages/instructor/assignments').then(function (data){
+            return data.json();
+        }).then(json => {
+            this.setState({
+                assignments : json
+            });
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+
+
+
     handleClickViewAllCourses(){
 
         fetch('http://localhost:7000/api/messages/instructor/assignments').then(function (data){
@@ -29,7 +44,7 @@ class ViewAllAssignments extends Component{
 
     render(){
 
-        console.log("CourseListItems rendering");
+
         const assignments = this.state.assignments;
         const assignmentsList = assignments.map(function (data,  index) {
             return (
@@ -39,10 +54,15 @@ class ViewAllAssignments extends Component{
             )
         });
 
+        const style = {
+            paddingTop : "50px"
+        };
+
         return(
-            <div className="CourseListItemsContainer">
-                <button onClick={this.handleClickViewAllCourses}> View all assignments </button>
+            <div className="CourseListItemsContainer" style={style}>
+                <h3> List of Assignments </h3>
                 {assignmentsList}
+                <button type="submit" className="btn btn-primary float-right" onClick={this.handleClickViewAllCourses}> Refresh Assignment List</button>
             </div>
         )
 

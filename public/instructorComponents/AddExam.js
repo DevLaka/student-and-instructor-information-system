@@ -16,28 +16,16 @@ class AddExam extends Component{
         event.preventDefault();
 
         const name = this.refs.name.value;
-        const code = this.refs.code.value;
-        const passMark = this.refs.passMark.value;
-        const lecturer = this.refs.lecturer.value;
-        const subname = this.refs.subname.value;
-        const subdescription = this.refs.subdescription.value;
-        const subamount = this.refs.subamount.value;
+        const description = this.refs.description.value;
+        const startdate = this.refs.startdate.value;
 
         const data = {
-            "name" : name,
-            "code" : code,
-            "passMark" : passMark,
-            "lectureInCharge" : lecturer,
-            "subjects" : [
-                {
-                    "name" : subname,
-                    "description" : subdescription,
-                    "amount" : subamount
-                }
-            ]
+            "examName" : name,
+            "description" : description,
+            "date" : startdate
         };
 
-        fetch('http://localhost:3000/api/messages/courses', {
+        fetch('http://localhost:7000/api/messages/instructor/exam', {
             method : 'POST',
             body : JSON.stringify(data),
             headers : {'Content-type' : 'application/json'}
@@ -50,49 +38,32 @@ class AddExam extends Component{
 
     render(){
 
-
+            const style = {
+                paddingTop : "50px"
+            };
 
         return(
-            <div className="AddExamContainer">
+
+            <div className="AddExamContainer" style={style}>
                 <h3> Add a Exam </h3>
                 <form onSubmit={this.handleSubmitAddCourseForm}>
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <label> Exam name : </label>
-                        </div>
-                        <div className="col-sm-6">
-                            <input type="text" ref="name"/>
-                        </div>
+
+                    <div className="form-group">
+                        <label htmlFor="name"> Exam name : </label>
+                        <input type="text" ref="name" id="name" className="form-control"/>
                     </div>
 
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <label> Description : </label>
-                        </div>
-                        <div className="col-sm-6">
-                            <textarea rows="4" cols="50" ref="code"/>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="description"> Description : </label>
+                        <textarea rows="4" cols="50" ref="description" id="description" className="form-control"/>
                     </div>
 
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <label> Allow submission from : </label>
-                        </div>
-                        <div className="col-sm-6">
-                            <input type="date" ref="passMark"/>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="startdate"> Date : </label>
+                        <input type="date" ref="startdate" id="startdate" className="form-control"/>
                     </div>
 
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <label> Due date : </label>
-                        </div>
-                        <div className="col-sm-6">
-                            <input type="date" ref="lecturer"/>
-                        </div>
-                    </div>
-
-                    <button> Add a Exam</button>
+                    <button type="submit" className="btn btn-primary float-right"> Add a Exam</button>
                 </form>
             </div>
         )

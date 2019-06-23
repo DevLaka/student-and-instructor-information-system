@@ -25,7 +25,6 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                {this.state.message}
 
                 //add link to the admin page
                 //add link to the instructor page

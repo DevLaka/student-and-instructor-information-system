@@ -9,11 +9,19 @@ class Exam extends Component{
 
     render(){
 
+        const style = {
+            marginTop : "10px",
+            marginBottom : "10px",
+            backgroundColor : "#e8f5e9"
+        };
+
         return(
-            <div className="ExamContainer">
-                <p> Exam Name : {this.props.examName}</p>
-                <p> Description : {this.props.desc}</p>
-                <p> Date : {this.props.date}</p>
+            <div className="card" style={style}>
+                <div className="ExamContainer card-body">
+                    <p className="card-title"> Exam Name : {this.props.exName}</p>
+                    <p className="text"> Description : {this.props.desc}</p>
+                    <p className="card-text"> Date : {this.props.date.replace('Z', ' ').replace('T', ' ')}</p>
+                </div>
             </div>
         )
     }

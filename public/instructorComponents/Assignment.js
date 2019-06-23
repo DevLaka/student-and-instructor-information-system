@@ -19,15 +19,23 @@ class Assignment extends Component{
 
     render(){
 
+        const style = {
+            marginTop : "10px",
+            marginBottom : "10px",
+            backgroundColor : "#e3f2fd"
+        };
+
         return(
-            <div>
+            <div className="card" style={style}>
                 <div className="card-body AssignmentContainer">
-                    <p> Assignment Name : {this.props.assName}</p>
-                    <p> Description : {this.props.desc}</p>
-                    <p> Submission From : {this.props.from}</p>
-                    <p> Due date : {this.props.duedate}</p>
+                    <p className="card-title"> Assignment Name : {this.props.assName}</p>
+                    <p className="card-text"> Description : {this.props.desc}</p>
+                    <p className="card-text"> Submission From : {this.props.from.replace('T', ' ').replace('Z', ' ')}</p>
+                    <p className="card-text"> Due date : {this.props.duedate.replace('T', ' ').replace('Z', ' ')}</p>
                 </div>
             </div>
+
+
         )
     }
 
